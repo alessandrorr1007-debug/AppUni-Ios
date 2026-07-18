@@ -10,7 +10,7 @@ Esta es la versión nativa para **iOS** de la aplicación **AgendaPx**, diseñad
 🍎 **iOS (TestFlight Beta):**
 Actualmente la distribución para dispositivos iOS está habilitada mediante Apple TestFlight para pruebas de desarrollo cerradas y abiertas. Puedes unirte al canal de pruebas usando el siguiente enlace:
 
-[LINK_TESTFLIGHT]
+Enlace TestFlight disponible próximamente.
 
 *Nota: Se requiere tener instalada la aplicación TestFlight de Apple en tu dispositivo antes de acceder al enlace.*
 
