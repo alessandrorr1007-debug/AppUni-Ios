@@ -45,3 +45,8 @@ Para más información técnica sobre cómo compilar, firmar la aplicación y ha
 * Cliente HTTP asíncrono nativo (`URLSession`) con inyección de JWT Bearer Token.
 * Almacenamiento seguro del token de sesión en el Keychain de iOS.
 * Pantallas de Login, Resumen (Dashboard), Lista de Cursos, Detalle de Notas (con calculadora de examen final necesario) y control de asistencia.
+
+---
+
+## Repositorios Relacionados
+- 🤖 Android: [AppUni-Android](https://github.com/alessandrorr1007-debug/AppUni-Android)
