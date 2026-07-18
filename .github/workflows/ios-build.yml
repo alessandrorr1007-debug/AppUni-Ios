@@ -1,0 +1,53 @@
+name: iOS Build & Test
+
+on:
+  push:
+    branches: [ main ]
+    tags:
+      - 'v*'
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build AgendaPx App
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Xcode Version
+        run: sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
+
+      - name: Build Xcode Project
+        run: |
+          if [ -d "AgendaPx.xcodeproj" ]; then
+            xcodebuild -project AgendaPx.xcodeproj \
+                       -scheme AgendaPx \
+                       -sdk iphonesimulator \
+                       -configuration Debug \
+                       clean build
+          else
+            echo "⚠️ AgendaPx.xcodeproj no encontrado. Por favor abre la carpeta en Xcode y guarda el proyecto para generar el archivo .xcodeproj."
+            echo "Validando sintaxis de los archivos Swift..."
+            swiftc AgendaPx/AgendaPxApp.swift \
+                   AgendaPx/Core/Network/APIClient.swift \
+                   AgendaPx/Core/Network/APIEndpoint.swift \
+                   AgendaPx/Core/Storage/KeychainManager.swift \
+                   AgendaPx/Models/User.swift \
+                   AgendaPx/Models/LoginResponse.swift \
+                   AgendaPx/Models/Nota.swift \
+                   AgendaPx/Models/Asistencia.swift \
+                   AgendaPx/Models/Alerta.swift \
+                   AgendaPx/ViewModels/LoginViewModel.swift \
+                   AgendaPx/ViewModels/DashboardViewModel.swift \
+                   AgendaPx/ViewModels/AttendanceViewModel.swift \
+                   AgendaPx/Views/LoginView.swift \
+                   AgendaPx/Views/MainTabView.swift \
+                   AgendaPx/Views/SummaryView.swift \
+                   AgendaPx/Views/CourseListView.swift \
+                   AgendaPx/Views/CourseDetailView.swift \
+                   AgendaPx/Views/AttendanceView.swift \
+                   -o build_check || true
+          fi

@@ -1,49 +1,47 @@
-# AgendaPx iOS Application
+# AgendaPx iOS
 
-Este directorio contiene el proyecto para la versión nativa de iOS de la aplicación **AgendaPx**, que consume la API del backend de UPAO PX.
+## Descripción
+Esta es la versión nativa para **iOS** de la aplicación **AgendaPx**, diseñada con Swift y SwiftUI bajo la arquitectura MVVM. La app consume el mismo backend que provee servicios a las plataformas Web y Android, permitiendo a los estudiantes de UPAO realizar un seguimiento en tiempo real de sus calificaciones, promedios ponderados, alertas de notas y asistencia académica desde dispositivos Apple de forma rápida y eficiente.
 
-## Tecnologías Utilizadas
-- **Swift 5.10+**
-- **SwiftUI** (Framework declarativo de UI)
-- **Swift Concurrency** (async/await)
-- **URLSession** (Networking nativo)
-- **Keychain Services API** (Almacenamiento seguro del token JWT)
+---
 
-## Estructura del Proyecto Propuesta
-```
-AgendaPx/
-├── AgendaPxApp.swift         # Punto de entrada
-├── Assets.xcassets           # Paletas de colores e iconos
-├── Core/
-│   ├── Network/              # Cliente API y peticiones HTTP
-│   └── Storage/              # Almacenamiento seguro (Keychain)
-├── Models/
-│   ├── Course.swift          # Modelos de Notas y Cursos
-│   ├── Attendance.swift      # Modelos de Asistencia
-│   └── Alert.swift           # Modelos de Alertas
-├── ViewModels/
-│   ├── LoginViewModel.swift
-│   ├── SummaryViewModel.swift
-│   └── CourseDetailViewModel.swift
-└── Views/
-    ├── Login/
-    │   └── LoginView.swift
-    ├── Main/
-    │   └── MainTabView.swift
-    ├── Summary/
-    │   └── SummaryView.swift
-    ├── Courses/
-    │   ├── CourseListView.swift
-    │   └── CourseDetailModal.swift
-    └── Attendance/
-        └── AttendanceView.swift
-```
+## Descargar AgendaPx
 
-## Configuración de Conexión
-La aplicación lee la URL base del backend desde un archivo de configuración o variables de entorno. 
-Por defecto se conecta al backend local en `http://localhost:3000` o al servidor en producción `https://upao-px-backend.onrender.com`.
+🍎 **iOS (TestFlight Beta):**
+Actualmente la distribución para dispositivos iOS está habilitada mediante Apple TestFlight para pruebas de desarrollo cerradas y abiertas. Puedes unirte al canal de pruebas usando el siguiente enlace:
 
-## Autenticación
-El flujo utiliza autenticación JWT mediante la cabecera:
-`Authorization: Bearer <token>`
-obtenido tras el inicio de sesión exitoso en `/auth/login`.
+[LINK_TESTFLIGHT]
+
+*Nota: Se requiere tener instalada la aplicación TestFlight de Apple en tu dispositivo antes de acceder al enlace.*
+
+---
+
+## Requisitos
+- **Sistema Operativo:** iOS 16.0 o superior.
+- **Dispositivos Compatibles:** iPhone (iPhone 8 o superior), iPad, y Macs con procesador Apple Silicon (M1/M2/M3).
+- **Conexión de Red:** Conexión a Internet activa para sincronización.
+
+---
+
+## Instalación
+1. Descarga e instala la aplicación oficial **TestFlight** desde la App Store en tu dispositivo iOS.
+2. Abre el enlace de descarga provisto en la sección superior ([LINK_TESTFLIGHT]) desde tu dispositivo móvil.
+3. Se abrirá TestFlight mostrando la invitación para unirse a la beta de **AgendaPx**. Presiona el botón **Aceptar**.
+4. Haz clic en **Instalar** para iniciar la descarga y configuración en tu pantalla de inicio.
+5. Inicia sesión con tus credenciales institucionales normales.
+
+---
+
+## Documentación de Despliegue
+Para más información técnica sobre cómo compilar, firmar la aplicación y habilitar el enlace de TestFlight en App Store Connect, consulta la guía interna:
+* [Guía de Distribución iOS](docs/distribucion.md)
+
+---
+
+## Versiones (Release History)
+
+### v1.0.0 (Versión Inicial)
+* Configuración base de la arquitectura MVVM con SwiftUI.
+* Cliente HTTP asíncrono nativo (`URLSession`) con inyección de JWT Bearer Token.
+* Almacenamiento seguro del token de sesión en el Keychain de iOS.
+* Pantallas de Login, Resumen (Dashboard), Lista de Cursos, Detalle de Notas (con calculadora de examen final necesario) y control de asistencia.
