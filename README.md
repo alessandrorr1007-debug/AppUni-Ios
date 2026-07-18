@@ -50,3 +50,4 @@ Para más información técnica sobre cómo compilar, firmar la aplicación y ha
 
 ## Repositorios Relacionados
 - 🤖 Android: [AppUni-Android](https://github.com/alessandrorr1007-debug/AppUni-Android)
+- ⚙️ Backend & Web: [Upao_PX](https://github.com/alessandrorr1007-debug/Upao_)
